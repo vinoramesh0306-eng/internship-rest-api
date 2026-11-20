@@ -9,8 +9,8 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 // Initialize SQLite database & run schema
-const dbPath = path.join(__dirname, "db", "internships.db");
-const schemaSql = fs.readFileSync(path.join(__dirname, "db", "schema.sql"), "utf8");const db = new sqlite3.Database(dbPath);
+const dbPath = path.join(__dirname, "internships.db");
+const schemaSql = fs.readFileSync(path.join(__dirname, "schema.sql"), "utf8");const db = new sqlite3.Database(dbPath);
 
 db.serialize(() => {
   db.exec(schemaSql, (err) => {
